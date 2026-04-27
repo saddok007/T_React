@@ -562,7 +562,7 @@ button {
     position: relative;
     margin-top: 4rem;
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     max-width: 24rem;
     flex-direction: column;
     border-radius: 0.5rem;
