@@ -561,8 +561,7 @@ button {
 .plan {
     position: relative;
     margin-top: 4rem;
-    display: flex;
-    /* width: 100%; */
+    display: flex;    
     max-width: 24rem;
     flex-direction: column;
     border-radius: 0.5rem;
