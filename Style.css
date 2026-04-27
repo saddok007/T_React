@@ -117,16 +117,13 @@ section {
     color: white;
 }
 
-
-
-
-
-
-
-
-
-
-
+button {
+    cursor: pointer;
+    border-width: medium;
+    border-style: none;
+    border-color: currentcolor;
+    border-image: initial;
+}
 
 
 
@@ -460,7 +457,11 @@ section {
 
 
 /********* Values Styles **************************************/
-
+#values .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 #values .btn {
     margin-top: 48px;
 }
@@ -544,12 +545,17 @@ section {
     align-items: center;
 }
 
+#features .section__title, #pricing .section__title {
+    text-align: center;
+}
+
 .plans {
     display: flex;
-    position: relative;
-    flex-direction: row;
+    position: relative;    
+    flex-wrap: wrap;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
 }
 
 .plan {
@@ -570,9 +576,120 @@ section {
     box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
-.plan:nth-child(odd) .plan__name, .plan:nth-child(odd) .plan__price, .plan:nth-child(odd) .plan__target {
-    color: #1a202c;
+.plan:nth-child(1) .plan__stripe, .plan:nth-child(1) .plan__button {
+    color: rgb(247, 250, 252);
+    background: linear-gradient(115deg, rgb(56, 178, 172) 0%, rgb(129, 230, 217) 100%);
 }
+
+.plan__stripe {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.plan__top {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+    line-height: 1.625;
+}
+
+.plan:nth-child(2n+1) .plan__name, .plan:nth-child(2n+1) .plan__price, .plan:nth-child(2n+1) .plan__target {
+    color: rgb(26, 32, 44);
+}
+
+.plan:nth-child(2n+1) .plan__name, .plan:nth-child(2n+1) .plan__price, .plan:nth-child(2n+1) .plan__target {
+    color: rgb(26, 32, 44);
+}
+
+.plan:nth-child(2n+1) .plan__duration {
+    color: rgb(160, 174, 192);
+}
+
+.plan__duration {
+    font-size: 16px;
+    letter-spacing: 0.1em;
+}
+
+.plan__name, .plan__price, .plan__duration {
+    font-weight: bold;
+    line-height: 1.625;
+}
+
+.plan:nth-child(1) .plan__middle, .plan:nth-child(3) .plan__middle {
+    border-top: 2px solid rgb(229, 231, 235);
+    border-bottom: 2px solid rgb(229, 231, 235);
+}
+
+.plan__middle {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    display: flex;
+    flex-direction: column;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    flex: 1 1 0%;
+    padding: 2rem;
+}
+
+.plan:nth-child(2n+1) .plan__name, .plan:nth-child(2n+1) .plan__price, .plan:nth-child(2n+1) .plan__target {
+    color: rgb(26, 32, 44);
+}
+
+.plan__target {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.025em;
+}
+
+.plan__feature {
+    margin-top: 20px;
+    font-weight: 500;
+    color: rgb(113, 128, 150);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.plan__bottom {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.plan:nth-child(1) .plan__stripe, .plan:nth-child(1) .plan__button {
+    color: rgb(247, 250, 252);
+    background: linear-gradient(115deg, rgb(56, 178, 172) 0%, rgb(129, 230, 217) 100%);
+}
+
+.plan__button:hover {
+    transform: translate(1px, -1px);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.plan__button {
+    background-color: rgb(100, 21, 255);
+    font-weight: 700;
+    color: rgb(247, 250, 252);
+    width: 100%;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 2rem;
+    transition: 300ms;
+    border-radius: 9999px;
+}
+
+
+
+
 
 .plan__name
 {
@@ -621,15 +738,7 @@ font-size: 20px;
     background-color: #f7fafc;
 }
 
-.plan__stripe {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    height: 0.5rem;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-}
+
 
 .plan__top {
     display: flex;
@@ -772,14 +881,40 @@ display: flex;
 .testimonial__buttom
 {
      display: flex;
-     justify-content: space-between;
-     
-   
+     justify-content: space-between;   
 }
 
-.testimonial___buttons {
-    display: flex
-    
+.testimonial__profile {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial__img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.testimonial__details {
+    margin-left: 24px;
+}
+
+.testimonial__name {
+    color: rgb(74, 85, 104);
+    line-height: 1.625;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.testimonial__role {
+    color: rgb(124, 139, 161);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.testimonial__buttons {
+    display: flex;
+    align-items: center;
 }
 
 .testimonial__button {
@@ -798,6 +933,11 @@ display: flex;
     height: 16px;
 }
 
+.testimonial__buttons {
+    display: flex;
+    align-items: center;
+}
+
 .divider {
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
@@ -811,36 +951,49 @@ display: flex;
 
 
 .start__container {
-    padding: 96px 0;
     width: 100%;
     background-color: rgb(100, 21, 255);
-    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 96px 0px;
+    border-radius: 8px;
 }
+
 
 .start__row {
     width: 100%;
-    margin: 0 auto;
     max-width: 1024px;
-    padding: 0 32px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0px auto;
+    padding: 0px 32px;
 }
 
+
 .start__title {
-    color: #f7fafc;
+    color: rgb(247, 250, 252);
     font-size: 30px;
     font-weight: 700;
     line-height: 1.5;
     z-index: 2;
 }
 
+.start__title, .start__buttons {
+    width: 50%;
+}
+
 .start__buttons {
     display: flex;
     justify-content: flex-end;
+}
+
+.start__button:nth-child(1) {
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    margin-right: 32px;
+    background: rgb(245, 101, 101);
+    transition: 300ms;
 }
 
 .start__button:nth-child(1) {
@@ -851,15 +1004,22 @@ display: flex;
 }
 
 .start__button {
-    padding: 20px 40px;
-    border-radius: 500px;
     font-weight: 700;
     font-size: 16px;
-    color: #f7fafc;
+    color: rgb(247, 250, 252);
     line-height: 1.5;
-    letter-spacing: 0.025;
-    margin: 1px;
     z-index: 2;
+    padding: 20px 40px;
+    border-radius: 500px;
+    margin: 1px;
+}
+
+.start__button:nth-child(2) {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(160, 174, 192);
+    border-image: initial;
+    transition: 300ms;
 }
 
 
@@ -981,10 +1141,174 @@ footer {
 /* Desktops */
 @media (min-width: 1280px) {}
 
+/************ 1280PX pohnes***************************************/
+@media (max-width: 1280px) {
+    h1 {
+        font-size: 36px;
+        color: rgb(26, 32, 44);
+        line-height: 1.25;
+    }
+
+        .header__description--para {
+        font-size: 16px;
+    }
+    .header__customers {
+        padding-right: 64px;
+    }
+        .header__img {
+        max-width: 512px;
+    }
+        .plan__button {
+        max-width: none;
+    }
+
+
+}
+/************ End 1280PX pohnes Styles***************************************
+
+/************ 1024PX phones***************************************/
+@media (max-width: 1024px) {
+    .plans {
+        flex-direction: column;
+        align-items: center;
+    }
+
+        header .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav__links {
+        display: none;
+    }
+    .btn__menu {
+        display: block;
+    }
+
+    .header__description {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+
+        .header__description, .header__img--wrapper {
+        width: 100%;
+        max-width: 512px;
+        margin: 0px auto;
+    }
+
+        h1 {
+        font-size: 30px;
+    }
+
+    .header__description--para {
+        margin: 20px 0px;
+    }
+    .header__customers--title, .header__img--wrapper {
+        margin-top: 48px;
+    }
+    .header__customers {
+        padding-right: 0px;
+    }
+    .header__customers--title, .header__img--wrapper {
+        margin-top: 48px;
+    }
+    .header__description, .header__img--wrapper {
+        width: 100%;
+        max-width: 512px;
+        margin: 0px auto;
+    }
+    .section__para {
+        font-size: 16px;
+    }
+    .features {
+        max-width: 768px;
+    }
+
+    .feature {
+        width: calc(50%);
+    }
+
+    .feature__row {
+        padding: 32px 8px;
+        margin: 0px 16px;
+    }
+    .feature__title {
+        line-height: 1;
+    }
+        .feature__para {
+        max-width: none;
+    }
+    .section__title {
+        font-size: 36px;
+    }
+        .values__list {
+        max-width: 20rem;
+        flex-direction: column;
+    }
+
+        #features .section__title, #pricing .section__title {
+        font-size: 48px;
+    }
+
+    .plans {
+        flex-direction: column;
+        align-items: center;
+    }
+    .plan {
+        margin-right: 0px;
+    }
+
+    #testimonials .container {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+#start .container {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    .start__row {
+        flex-direction: column;
+    }
+
+    .start__title {
+        text-align: center;
+        width: 100%;
+        max-width: 512px;
+    }
+
+        .start__buttons {
+        width: auto;
+        margin-top: 24px;
+    }
+    .start__button {
+        padding: 16px 32px;
+    }
 
 
 
 
+
+
+
+
+
+
+
+
+    
+
+    
+      
+
+
+
+}
+/************ End 1024PX pohnes Styles***************************************
+
+
+/************ 730PX phones styles***************************************/
 
 @media (max-width: 730px) {
 .header__description {
@@ -1020,10 +1344,255 @@ h2
     margin-bottom: 24px;
   }
 }
+/************end 730PX phones styles***************************************/
+
 
  
 
-@media (max-width: 550px) {
-  
+/************ 768PX phones styles***************************************/
+
+@media (max-width: 768px) {
+    .features {
+        justify-content: center;
+    }
+    .section__para {
+        font-size: 14px;
+    }
+        .features {
+        justify-content: center;
+    }
+
+    .feature {
+        width: auto;
+        max-width: 384px;
+    }
+    #quality .row, #values .row {
+        
+        flex-direction: column-reverse;
+    }
+        .quality__description, .quality__img--wrapper, .steps__description, .steps__img--wrapper, .values__description, .values__img, .testimonials__description, .testimonials__img {
+        width: 100%;
+        max-width: 448px;
+    }
+
+    .quality__description, .steps__description, .values__description, .testimonials__description {
+        margin-top: 64px;
+        text-align: center;
+        padding: 0px;
+    }
+    #steps .row, #testimonials .row {
+        flex-direction: column;
+    }
+
+    .step {
+        flex-direction: column;
+        align-items: center;
+    }
+
+        #quality .row, #values .row {
+        flex-direction: column-reverse;
+    }
+
+        .values__list {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .value:nth-of-type(1) {
+        margin-right: 0px;
+    }
+
+    .value {
+        margin-right: 0px;
+        align-items: center;
+    }
+
+    #pricing .row {
+        margin-top: 40px;
+    }
+
+    .footer__columns {
+        justify-content: flex-start;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
     
+
+    .footer__copyright, .footer__socials {
+        margin-top: 32px;
+    }
+
+        .footer__socials {
+        margin-left: 0px;
+    }
+
+    .footer__social--link:first-child {
+        margin-left: 0px;
+    }
+
+
+
+
+
+
+
+
+
+
 }
+/************End 768PX phones styles***************************************/
+
+
+/************ 640PX pohnes style***************************************/
+
+@media (max-width: 640px) {
+    .container {
+        padding: 80px 0px;
+    }
+    .nav__logo {
+        padding-bottom: 4px;
+        margin: 8px 0px;
+    }
+    .container {
+        padding: 80px 0px;
+    }
+    .header__email {
+        flex-direction: column;
+        height: auto;
+    }
+        .header__email--input {
+        position: static;
+        line-height: 1.5;
+        padding: 16px 0px 16px 32px;
+    }
+    .header__email--btn {
+        width: 100%;
+        line-height: 1.5;
+        padding: 16px 0px;
+        margin: 16px 0px 0px;
+    }
+        .header__customers--title {
+        font-size: 14px;
+        letter-spacing: 0.05em;
+    }
+#features .section__title, #pricing .section__title {
+        font-size: 36px;
+    }
+
+    .feature__row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .feature__text {
+        margin-left: 0px;
+        margin-top: 16px;
+    }
+    .feature__title {
+        letter-spacing: 0.025em;
+        line-height: 1;
+    }
+
+        .feature__para {
+        margin-top: 4px;
+        line-height: 2;
+    }
+
+    .section__title {
+        font-size: 30px;
+    }
+    .section__title {
+        line-height: 1.25;
+    }
+
+    .btn {
+        line-height: 1.5;
+    }
+    #steps .section__title {
+        margin: 16px 0px 0px;
+    }
+
+    .section__title {
+        font-size: 30px;
+    }
+    .section__title {
+        line-height: 1.25;
+    }
+
+    .steps__list {
+        margin-top: 48px;
+    }
+
+    .plan__price {
+        font-size: 36px;
+    }
+
+    .plan__bottom {
+        padding: 2rem 1rem;
+    }
+
+    .start__container {
+        padding: 80px 0px;
+    }
+
+    .start__title {
+        font-size: 24px;
+    }
+
+    .start__buttons {
+        flex-direction: column;
+    }
+
+    .start__button:nth-child(1) {
+        margin-right: 0px;
+    }
+
+    .start__button:nth-child(2) {
+        margin-top: 16px;
+    }
+
+    .start__button {
+        font-size: 14px;
+        padding: 12px 24px;
+    }
+
+    .btn {
+        line-height: 1.5;
+    }
+        .footer__columns {
+        justify-content: center;
+    }
+
+    .footer__column {
+        width: auto;
+        text-align: center;
+        align-items: center;
+        padding: 0px 16px;
+    }
+
+    .footer__column {
+        width: auto;
+        text-align: center;
+        align-items: center;
+        padding: 0px 16px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+/************End 640PX pohnes style***************************************/
